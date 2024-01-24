@@ -4,9 +4,6 @@ metadata:
   name: default.allow-all
 spec:
   tier: default
-  selector: ''
-  namespaceSelector: ''
-  serviceAccountSelector: ''
   ingress:
     - action: Allow
       source: {}
@@ -15,9 +12,6 @@ spec:
     - action: Allow
       source: {}
       destination: {}
-  doNotTrack: false
-  applyOnForward: false
-  preDNAT: false
   types:
     - Ingress
     - Egress
