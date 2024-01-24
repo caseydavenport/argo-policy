@@ -1,38 +1,24 @@
 apiVersion: projectcalico.org/v3
-kind: NetworkPolicy
+kind: GlobalNetworkPolicy
 metadata:
-  name: namespace-isolation.argocd-xkqqf
-  namespace: argocd
+  name: namespace-isolation.allow-all
 spec:
   tier: namespace-isolation
   order: 300
-  selector: projectcalico.org/namespace == "argocd"
+  selector: ''
+  namespaceSelector: ''
   serviceAccountSelector: ''
+  ingress:
+    - action: Allow
+      source: {}
+      destination: {}
   egress:
     - action: Allow
-      protocol: TCP
       source: {}
-      destination:
-        namespaceSelector: projectcalico.org/name == "argocd"
-        ports:
-          - '6379'
-          - '8081'
-    - action: Allow
-      protocol: UDP
-      source: {}
-      destination:
-        namespaceSelector: projectcalico.org/name == "kube-system"
-        ports:
-          - '53'
-    - action: Allow
-      protocol: TCP
-      source: {}
-      destination:
-        selector: >-
-          (projectcalico.org/name == "kse.kubernetes" && projectcalico.org/kind
-          == "NetworkSet")
-        namespaceSelector: projectcalico.org/name == "default"
-        ports:
-          - '6443'
+      destination: {}
+  doNotTrack: false
+  applyOnForward: false
+  preDNAT: false
   types:
+    - Ingress
     - Egress
