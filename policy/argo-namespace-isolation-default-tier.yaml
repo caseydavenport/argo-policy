@@ -1,7 +1,7 @@
 apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
-  name: namespace-isolation-default.allow-all
+  name: default.allow-all
 spec:
   tier: default
   selector: ''
