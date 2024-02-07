@@ -3,6 +3,8 @@ kind: NetworkPolicy
 metadata:
   name: argo
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/compare-options: IgnoreExtraneous
 spec:
   tier: namespace-isolation
   types:
