@@ -1,0 +1,18 @@
+apiVersion: projectcalico.org/v3
+kind: NetworkPolicy
+metadata:
+  name: namespace-isolation.allow
+  namespace: argocd
+spec:
+  tier: namespace-isolation
+  types:
+    - Ingress
+    - Egress
+  ingress:
+    - action: Allow
+      source: { }
+      destination: { }
+  egress:
+    - action: Allow
+      source: { }
+      destination: { }
