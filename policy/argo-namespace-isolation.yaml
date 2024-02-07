@@ -2,14 +2,9 @@ apiVersion: projectcalico.org/v3
 kind: GlobalNetworkPolicy
 metadata:
   name: namespace-isolation.allow-all
-  annotations:
-    argocd.argoproj.io/compare-options: IgnoreExtraneous
 spec:
   tier: namespace-isolation
   order: 300
-  selector: ''
-  namespaceSelector: ''
-  serviceAccountSelector: ''
   ingress:
     - action: Allow
       source: {}
@@ -18,9 +13,6 @@ spec:
     - action: Allow
       source: {}
       destination: {}
-  doNotTrack: false
-  applyOnForward: false
-  preDNAT: false
   types:
     - Ingress
     - Egress
