@@ -1,7 +1,7 @@
 apiVersion: projectcalico.org/v3
 kind: StagedGlobalNetworkPolicy
 metadata:
-  name: allow-all
+  name: default.allow-all
 spec:
   order: 300
   ingress:
