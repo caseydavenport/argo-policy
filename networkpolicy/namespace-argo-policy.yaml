@@ -1,7 +1,7 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: namespace-isolation.allow-argo-namespace
+  name: namespace-isolation.allow-all
   namespace: argocd
 spec:
   tier: namespace-isolation

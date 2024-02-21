@@ -1,10 +1,10 @@
 apiVersion: projectcalico.org/v3
-kind: NetworkPolicy
+kind: StagedNetworkPolicy
 metadata:
-  name: default.allow-all
+  name: namespace-isolation.allow-all
   namespace: argocd
 spec:
-  tier: default
+  tier: namespace-isolation
   ingress:
     - action: Allow
       source: {}
