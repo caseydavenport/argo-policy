@@ -1,0 +1,17 @@
+apiVersion: projectcalico.org/v3
+kind: StagedKubernetesNetworkPolicy
+metadata:
+  name: allow-all
+  namespace: argocd
+spec:
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - action: Allow
+      source: {}
+      destination: {}
+  egress:
+    - action: Allow
+      source: {}
+      destination: {}
