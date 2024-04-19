@@ -1,10 +1,9 @@
 apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
-  name: default.allow-all
+  name: allow-all
   namespace: argocd
 spec:
-  tier: default
   ingress:
     - action: Allow
       source: {}
